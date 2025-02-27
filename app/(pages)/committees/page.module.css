@@ -1,0 +1,6 @@
+.image {
+    align-self: center;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 0 80px 40px rgba(214, 135, 218, 0.4);
+}
