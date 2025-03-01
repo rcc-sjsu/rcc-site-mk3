@@ -15,6 +15,8 @@ To see another page, add its name to the url (Ex. For the committees page, you c
 
 I've already set up the page structure, so you can edit your pages by opening the corresponding folder and editing `./page.tsx`. The page auto-updates as you edit the file.
 
+You can modify the css for that page in the `page.module.css` file. The global styles are in global.css
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
