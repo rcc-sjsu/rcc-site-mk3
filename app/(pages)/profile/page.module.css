@@ -1,0 +1,63 @@
+.main {
+  display: flex;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 100vh;
+  background-color: whitesmoke;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.left_section {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 620px;
+  max-height: 682px;
+  background-color: aliceblue;
+}
+
+.label {
+  display: block;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.75rem;
+}
+
+.input {
+  padding: 1.2rem 1rem;
+  border-radius: 0.375rem;
+  border-width: 2px;
+  border-color: #5c1c75;
+  width: 100%;
+
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 88%;
+  letter-spacing: 0%;
+  margin-bottom: 1.75rem;
+}
+
+.right_section {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 688px;
+  max-height: 682px;
+  text-align: center;
+  background-color: azure;
+}
+
+.requirements_title {
+  font-size: 100px;
+  line-height: 130px;
+  font-weight: bold;
+  text-align: center;
+}
