@@ -60,11 +60,11 @@ export default function Profile() {
         <div className="flex flex-col justify-center items-center">
           <div className={styles.image_container}>
             <Image
-              src="/images/profile-images/checkmark-circles.svg"
+              src="/images/profile-images/circle-congrats.png"
               alt="Requirements Steps"
               layout="responsive"
-              width={540} // Adjust these values based on your image's actual width and desired aspect ratio
-              height={88}
+              width={624} // Adjust these values based on your image's actual width and desired aspect ratio
+              height={201}
               objectFit="contain"
             />
           </div>

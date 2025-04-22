@@ -51,8 +51,6 @@
 
 .right_section {
   display: flex;
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
   margin-top: 2.5rem;
   flex-direction: column;
   width: 100%;
@@ -65,7 +63,7 @@
   line-height: 130px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .requirements_p {
@@ -80,7 +78,8 @@
 .image_container {
   position: relative;
   width: 100%;
-  max-width: 34rem;
+  max-width: 38rem;
+  margin-left: 4.5rem;
 }
 
 .requirement_text_container {
