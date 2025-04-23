@@ -1,10 +1,43 @@
+"use client";
 import styles from "./page.module.css";
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
 
 export default function Profile() {
+  const [name, setName] = useState("Member’s Name");
+  const [email, setEmail] = useState("membersemail@rcc.com");
+  const [memberStatus, setMemberStatus] = useState("Registered Member");
+
+  // loading and error states
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // ***CLIENT-SIDE LIKELY NOT IDEAL IN NEXT.JS -> CHANGE LATER***
+
+  // LATER IMPLEMENTATION OF BACKEND CALL FOR PROFILE INFORMATION
+  // useEffect(() => {
+  //   async function fetchProfileData() {
+  //     try {
+  //       const response = await fetch("BACKEND_API_ENDPOINT", {
+  //         // Include authentication headers if needed
+  //       });
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+  //       const userData = await response.json();
+  //       setName(userData.name);
+  //       setEmail(userData.email);
+  //       setMemberStatus(userData.memberStatus);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       setError(err.message);
+  //       setLoading(false);
+  //     }
+  //   }
+  // });
   return (
     <main className={styles.main}>
-      {/* left side: form */}
+      {/* left side: profile details */}
       <section className={styles.left_section}>
         <div className="">
           <label className={styles.label} htmlFor="name">
@@ -16,6 +49,7 @@ export default function Profile() {
             placeholder="Member’s Name"
             className={styles.input}
             readOnly
+            defaultValue={name}
           />
         </div>
         <div>
@@ -28,6 +62,7 @@ export default function Profile() {
             placeholder="membersemail@rcc.com"
             className={styles.input}
             readOnly
+            defaultValue={email}
           />
         </div>
         <div>
@@ -47,9 +82,7 @@ export default function Profile() {
             Member Status
           </label>
           <select id="status" className={styles.input}>
-            <option>Registered Member</option>
-            <option>Ambassador</option>
-            <option>Lead Ambassador</option>
+            <option>{memberStatus}</option>
           </select>
         </div>
       </section>
