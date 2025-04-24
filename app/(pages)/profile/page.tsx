@@ -1,14 +1,40 @@
+"use client";
 import styles from "./page.module.css";
 import Image from "next/image";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
+import React, { useState, useEffect } from "react";
 
-interface ProfileProps {
-  name: string;
-  email: string;
-  memberStatus: string;
-}
+export default function Profile() {
+  const [name, setName] = useState("Member’s Name");
+  const [email, setEmail] = useState("membersemail@rcc.com");
+  const [memberStatus, setMemberStatus] = useState("Registered Member");
 
-export default function Profile({ name, email, memberStatus }: ProfileProps) {
+  // loading and error states
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // ***CLIENT-SIDE LIKELY NOT IDEAL IN NEXT.JS -> CHANGE LATER***
+
+  // LATER IMPLEMENTATION OF BACKEND CALL FOR PROFILE INFORMATION
+  // useEffect(() => {
+  //   async function fetchProfileData() {
+  //     try {
+  //       const response = await fetch("BACKEND_API_ENDPOINT", {
+  //         // Include authentication headers if needed
+  //       });
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
+  //       const userData = await response.json();
+  //       setName(userData.name);
+  //       setEmail(userData.email);
+  //       setMemberStatus(userData.memberStatus);
+  //       setLoading(false);
+  //     } catch (err) {
+  //       setError(err.message);
+  //       setLoading(false);
+  //     }
+  //   }
+  // });
   return (
     <main className={styles.main}>
       {/* left side: profile details */}
@@ -27,7 +53,7 @@ export default function Profile({ name, email, memberStatus }: ProfileProps) {
           />
         </div>
         <div>
-          <label className={styles.label} htmlFor="email">
+          <label className={styles.label} htmlFor="name">
             Email
           </label>
           <input
@@ -40,7 +66,7 @@ export default function Profile({ name, email, memberStatus }: ProfileProps) {
           />
         </div>
         <div>
-          <label className={styles.label} htmlFor="password">
+          <label className={styles.label} htmlFor="name">
             Password
           </label>
           <input
@@ -52,10 +78,10 @@ export default function Profile({ name, email, memberStatus }: ProfileProps) {
           />
         </div>
         <div>
-          <label className={styles.label} htmlFor="member-status">
+          <label className={styles.label} htmlFor="name">
             Member Status
           </label>
-          <select id="member-status" className={styles.input}>
+          <select id="status" className={styles.input}>
             <option>{memberStatus}</option>
           </select>
         </div>
@@ -94,37 +120,3 @@ export default function Profile({ name, email, memberStatus }: ProfileProps) {
     </main>
   );
 }
-
-// function runs on the server every time a user requests the profile page, passing the necessary props from the backend to the frontend
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
-) => {
-  try {
-    const res = await fetch("BACKEND_API_ENDPOINT", {
-      // additional headers if needed (authentication, etc)
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch profile data");
-    }
-
-    const data = await res.json();
-
-    return {
-      props: {
-        name: data.name,
-        email: data.email,
-        memberStatus: data.memberStatus,
-      },
-    };
-  } catch (error: any) {
-    return {
-      props: {
-        name: "Member's Name",
-        email: "membersemail@rcc.com",
-        memberStatus: "Registered Member",
-        // error: error.message,
-      },
-    };
-  }
-};
