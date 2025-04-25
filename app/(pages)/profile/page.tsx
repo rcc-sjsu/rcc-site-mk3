@@ -1,40 +1,41 @@
-"use client";
 import styles from "./page.module.css";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
 
-export default function Profile() {
-  const [name, setName] = useState("Member’s Name");
-  const [email, setEmail] = useState("membersemail@rcc.com");
-  const [memberStatus, setMemberStatus] = useState("Registered Member");
+async function getProfileData() {
+  try {
+    const res = await fetch("BACKEND_API_ENDPOINT", {
+      // credentials, headers, auth, etc
+      cache: "no-store", // fetch fresh information everytime profile page is requested
+    });
 
-  // loading and error states
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+    if (!res.ok) {
+      throw new Error("Failed to fetch profile data");
+    }
 
-  // ***CLIENT-SIDE LIKELY NOT IDEAL IN NEXT.JS -> CHANGE LATER***
+    const data = await res.json();
+    return {
+      name: data.name,
+      email: data.email,
+      memberStatus: data.memberStatus,
+    };
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.error("Error fetching profile data; ", error.message);
+    } else {
+      console.error("Unknown error fetching profile data");
+    }
 
-  // LATER IMPLEMENTATION OF BACKEND CALL FOR PROFILE INFORMATION
-  // useEffect(() => {
-  //   async function fetchProfileData() {
-  //     try {
-  //       const response = await fetch("BACKEND_API_ENDPOINT", {
-  //         // Include authentication headers if needed
-  //       });
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error! status: ${response.status}`);
-  //       }
-  //       const userData = await response.json();
-  //       setName(userData.name);
-  //       setEmail(userData.email);
-  //       setMemberStatus(userData.memberStatus);
-  //       setLoading(false);
-  //     } catch (err) {
-  //       setError(err.message);
-  //       setLoading(false);
-  //     }
-  //   }
-  // });
+    // return fallback data in case data fetch fails
+    return {
+      name: "Member's Name",
+      email: "membersemail@rcc.com",
+      memberStatus: "Registered Member",
+    };
+  }
+}
+
+export default async function Profile() {
+  const { name, email, memberStatus } = await getProfileData();
   return (
     <main className={styles.main}>
       {/* left side: profile details */}
@@ -53,7 +54,7 @@ export default function Profile() {
           />
         </div>
         <div>
-          <label className={styles.label} htmlFor="name">
+          <label className={styles.label} htmlFor="email">
             Email
           </label>
           <input
@@ -66,22 +67,22 @@ export default function Profile() {
           />
         </div>
         <div>
-          <label className={styles.label} htmlFor="name">
+          <label className={styles.label} htmlFor="password">
             Password
           </label>
           <input
             type="password"
             id="password"
-            placeholder="**********************"
+            placeholder="*****************"
             className={styles.input}
             readOnly
           />
         </div>
         <div>
-          <label className={styles.label} htmlFor="name">
+          <label className={styles.label} htmlFor="member-status">
             Member Status
           </label>
-          <select id="status" className={styles.input}>
+          <select id="member-status" className={styles.input}>
             <option>{memberStatus}</option>
           </select>
         </div>
