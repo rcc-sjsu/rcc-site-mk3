@@ -1,0 +1,86 @@
+.container {
+    background-color: white;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    font-size: 1.2rem;
+  }
+  
+  .navLinks {
+    display: flex;
+    list-style-type: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .signupButton {
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .monthHeader {
+    text-align: center;
+    font-size: 1rem;
+    color: #9e84af;
+    margin: 30px 0 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .arrow {
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .monthLabel {
+    font-weight: 600;
+  }
+  
+  .daysRow {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: #c7adc3;
+    margin: 0 50px;
+  }
+  
+  .datesGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    margin: 20px 50px 50px 50px;
+  }
+  
+  .dateCell {
+    background-color: #ccc;
+    height: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 8px;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  
+  .today {
+    background-color: #9575cd !important;
+    color: white;
+    font-weight: bold;
+  }
+  
