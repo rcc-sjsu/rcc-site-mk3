@@ -1,0 +1,44 @@
+'use server'
+
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
+
+interface SignUpState {
+    error: string | null;
+}
+
+export async function signup(
+    prevState: SignUpState,
+    formData: FormData
+): Promise<SignUpState> {
+    const supabase = await createClient();
+
+    const signupData = {
+        email: formData.get('email') as string,
+        password: formData.get('password') as string,
+    }
+
+    const { data: signupReturn, error: signupError } = await supabase.auth.signUp(signupData);
+
+    if (signupError) {
+        console.log("Error Creating Account",signupError.message)
+        return { error: signupError.message }
+    }
+    else {
+        const userData = {
+            system_id: signupReturn.user?.id,
+            preferred_email: signupReturn.user?.email,
+            first_name: formData.get('fname') as string,
+            last_name: formData.get('lname') as string,
+        }
+
+        const { error: insertionError } = await supabase.from('users').insert(userData)
+
+        if (insertionError) {
+            console.error("Error inserting student data: ", insertionError.message)
+            return { error: insertionError.message }
+        }
+    }
+
+    redirect('./login')
+}
