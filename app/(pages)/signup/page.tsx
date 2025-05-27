@@ -2,14 +2,20 @@
 
 import { useActionState, FormEvent } from "react";
 import { signup } from "./actions";
-import { UserIcon, LockClosedIcon } from "@heroicons/react/24/solid";
+import { UserIcon, LockClosedIcon, EnvelopeIcon, IdentificationIcon, AcademicCapIcon, ChatBubbleOvalLeftIcon, BookOpenIcon } from "@heroicons/react/24/solid";
 import { useRef, useState, useEffect, ChangeEvent, FocusEvent } from "react";
 
 // ----- Types -----
 interface SignupFormFields {
   fname: string;
   lname: string;
+  pname: string;
+  sid: string;
   email: string;
+  sjsuEmail: string;
+  major: string;
+  discord: string;
+  gradDate: string;
   password: string;
   passConfirm: string;
 }
@@ -59,7 +65,13 @@ export default function SignUpPage(): React.JSX.Element {
   const [fields, setFields] = useState<SignupFormFields>({
     fname: "",
     lname: "",
+    pname: "",
+    sid: "",
     email: "",
+    sjsuEmail: "",
+    major: "",
+    discord: "",
+    gradDate: new Date().toISOString().slice(0, 10),
     password: "",
     passConfirm: "",
   });
@@ -124,7 +136,7 @@ export default function SignUpPage(): React.JSX.Element {
   };
 
   return (
-    <div className="flex h-screen p-25">
+    <div className="flex p-25 m-5">
       <form
         ref={formRef}
         action={formAction}
@@ -132,7 +144,7 @@ export default function SignUpPage(): React.JSX.Element {
         className="m-auto h-full w-2/5 flex flex-col justify-evenly"
       >
         {/* First Name - no validation */}
-        <div className="relative w-full mb-2">
+        <div className="relative w-full my-5">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4">
             <UserIcon className="h-5 w-5 text-white" />
           </span>
@@ -148,7 +160,7 @@ export default function SignUpPage(): React.JSX.Element {
         </div>
 
         {/* Last Name - no validation */}
-        <div className="relative w-full mb-2">
+        <div className="relative w-full my-5">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4">
             <UserIcon className="h-5 w-5 text-white" />
           </span>
@@ -163,15 +175,47 @@ export default function SignUpPage(): React.JSX.Element {
           />
         </div>
 
-        {/* Email */}
-        <div className="relative w-full mb-2">
+        {/* Preferred Name - no validation */}
+        <div className="relative w-full my-5">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4">
             <UserIcon className="h-5 w-5 text-white" />
           </span>
           <input
+            type="text"
+            name="pname"
+            placeholder="Preferred Name"
+            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            value={fields.pname}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        
+        {/* Student ID - no validation */}
+        <div className="relative w-full my-5">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+            <IdentificationIcon className="h-5 w-5 text-white" />
+          </span>
+          <input
+            type="text"
+            name="sid"
+            placeholder="Student ID"
+            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            value={fields.sid}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* Preferred Email */}
+        <div className="relative w-full my-5">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+            <EnvelopeIcon className="h-5 w-5 text-white" />
+          </span>
+          <input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="Preferred Email"
             className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
             value={fields.email}
             onChange={handleChange}
@@ -189,8 +233,28 @@ export default function SignUpPage(): React.JSX.Element {
           </div>
         )}
 
+        {/* SJSU Email */}
+        <div className="relative w-full my-5">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+            <EnvelopeIcon className="h-5 w-5 text-white" />
+          </span>
+          <input
+            type="email"
+            name="sjsuEmail"
+            placeholder="SJSU Email"
+            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            value={fields.sjsuEmail}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            required
+          />
+          {touched.email && errors.email && (
+            <div className="mt-1 text-red-500 text-sm">{errors.email}</div>
+          )}
+        </div>
+
         {/* Password */}
-        <div className="relative w-full mb-2">
+        <div className="relative w-full my-5">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4">
             <LockClosedIcon className="h-5 w-5 text-white" />
           </span>
@@ -210,7 +274,7 @@ export default function SignUpPage(): React.JSX.Element {
         </div>
 
         {/* Confirm Password */}
-        <div className="relative w-full mb-2">
+        <div className="relative w-full my-5">
           <span className="absolute inset-y-0 left-0 flex items-center pl-4">
             <LockClosedIcon className="h-5 w-5 text-white" />
           </span>
@@ -229,6 +293,54 @@ export default function SignUpPage(): React.JSX.Element {
           )}
         </div>
 
+        {/* Major - no validation */}
+        <div className="relative w-full my-5">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+            <BookOpenIcon className="h-5 w-5 text-white" />
+          </span>
+          <input
+            type="text"
+            name="major"
+            placeholder="Major"
+            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            value={fields.major}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* Discord Name - no validation */}
+        <div className="relative w-full my-5">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+            <ChatBubbleOvalLeftIcon className="h-5 w-5 text-white" />
+          </span>
+          <input
+            type="text"
+            name="discord"
+            placeholder="Discord Username"
+            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            value={fields.discord}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        {/* Graduation Date*/}
+        <div className="relative w-full my-5">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+            <AcademicCapIcon className="h-5 w-5 text-white" />
+          </span>
+          <input
+            type="date"
+            name="gradDate"
+            placeholder="Graduation Date"
+            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            value={fields.gradDate}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         {/* Server-side error */}
         {(state?.error && (state?.error != 'insert or update on table "users" violates foreign key constraint "users_system_id_fkey"')) && (
           <div className="mt-2 mb-2 text-center text-red-500 font-medium">
@@ -238,7 +350,7 @@ export default function SignUpPage(): React.JSX.Element {
 
         <button
           type="submit"
-          className="w-3/5 py-4 bg-purple-800 text-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400 mx-auto"
+          className="w-3/5 my-5 py-3 bg-purple-800 text-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400 mx-auto"
           disabled={!isFormValid || isPending}
         >
           {isPending ? "Signing up..." : "Sign Up"}
