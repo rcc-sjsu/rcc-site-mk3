@@ -1,0 +1,21 @@
+@import "tailwindcss"; 
+
+#portfolioProjects {
+  font-family: Nunito Sans;
+}
+
+.odd {
+  @apply bg-[#D687DA66];
+}
+
+.oddBorder {
+  @apply border-[#AF7FD5] border-[0.3rem];
+}
+
+.even {
+  @apply bg-[#707FD966];
+}
+
+.evenBorder {
+  @apply border-[#707FD9] border-[0.3rem];
+}
