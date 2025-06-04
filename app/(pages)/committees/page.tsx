@@ -3,13 +3,10 @@ import styles from "./page.module.css";
 
 export default function Committees() {
     return (
-        <body>
-
-            {/* <header-component></header-component> */}
-
+        <>
             <div className="p-20">
 
-                <h1>Committees</h1>
+                <h1>Teams</h1>
                 <hr />
 
                 <div className="grid grid-cols-5 gap-4 px-15 py-20">
@@ -154,7 +151,7 @@ export default function Committees() {
                 </div>
             </div>
 
-        </body>
+        </>
     );
 }
 
