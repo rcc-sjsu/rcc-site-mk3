@@ -11,12 +11,13 @@
   "dependencies": {
     "@supabase/ssr": "latest",
     "@supabase/supabase-js": "latest",
-    "@tailwindcss/postcss": "^4.1.7",
+    "@tailwindcss/postcss": "^4.1.8",
+    "@tailwindcss/vite": "^4.1.8",
     "next": "15.2.0",
-    "postcss": "^8.5.3",
+    "postcss": "^8.5.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindcss": "^4.1.7"
+    "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

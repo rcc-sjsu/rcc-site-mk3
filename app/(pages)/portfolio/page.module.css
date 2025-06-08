@@ -1,21 +1,39 @@
-@import "tailwindcss"; 
 
-#portfolioProjects {
-  font-family: Nunito Sans;
+
+#title {
+  font-family: "Zilla Slab";
+  /* @apply font-[Zilla_Slab] */
+  font-weight: 700;
+  line-height: 6rem;
+  font-size: 4.7rem;
 }
 
-.odd {
-  @apply bg-[#D687DA66];
+.oddProjectTile {
+  background-color: #D687DA66;
+  width: 27.5rem;
+  height: 33rem;
 }
 
-.oddBorder {
-  @apply border-[#AF7FD5] border-[0.3rem];
+.evenProjectTile {
+  background-color: #707FD966;
+  width: 27.5rem;
+  height: 33rem;
 }
 
-.even {
-  @apply bg-[#707FD966];
+.oddProjectImage {
+  @apply w-[91%] m-auto mb-[2rem] border-[0.15rem] border-[#BF86D8]
 }
 
-.evenBorder {
-  @apply border-[#707FD9] border-[0.3rem];
+.evenProjectImage {
+  @apply w-[91%] m-auto mb-[2rem] border-[0.15rem] border-[#707FD9]
+}
+
+.projectTitle { 
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+.committeeName {
+  font-size: 1.1rem;
+  margin-bottom: 0.7rem
 }

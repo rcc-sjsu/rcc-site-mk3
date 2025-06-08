@@ -15,7 +15,7 @@ const nunitoSans = Nunito_Sans({
 
 const zillaSlab = Zilla_Slab({
   variable: '--font-zilla-slab',
-  weight: '500'
+  weight: ['500','700']
 })
 
 export const metadata: Metadata = {
