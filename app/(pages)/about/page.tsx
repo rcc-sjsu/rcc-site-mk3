@@ -8,11 +8,7 @@ export default function Home(): JSX.Element {
     return (
         <main className="flex flex-row justify-center items-center h-[80vh] gap-5 bg-white relative">
             <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-400 via-purple-500 to-purple-600 opacity-30 blur-[150px] z-0" />
-<<<<<<< HEAD
-            <div className="text-left max-w-[700px] pt-15 z-10 mt-10">
-=======
             <div className="text-left max-w-[700px] pt-15 z-10 mt-10">  
->>>>>>> 9855caca93b364d7dfbbe5ab67c4c46e38b3474f
                 <h1 className="text-3xl font-bold whitespace-nowrap">
                     <TypeAnimation
                         sequence={[
@@ -34,21 +30,6 @@ export default function Home(): JSX.Element {
                     </p></div>
                 <div className="flex gap-6 mt-10">
                     <a href="https://www.instagram.com/rcc.sjsu/" className="text-5xl">
-<<<<<<< HEAD
-                        <FaInstagramSquare className="w-9 h-9 fill-[#5c2560] hover:fill-[#e1306c] hover:scale-110 transition duration-300" />
-                    </a>
-                    <a href="https://www.linkedin.com/company/rcc-sjsu/" className="text-5xl">
-                        <FaLinkedin className="w-9 h-9 fill-[#5c2560] hover:fill-[#0077b5] hover:scale-110 transition duration-300" />
-                    </a>
-                    <a href="mailto:rcc.sjsu@gmail.com" className="text-5xl">
-                        <FaEnvelope className="w-9 h-9 fill-[#5c2560] hover:fill-[#ea4335] hover:scale-110 transition duration-300" />
-                    </a>
-                    <a href="https://discord.com/invite/RGG9dMw4Rc" className="text-5xl">
-                        <FaDiscord className="w-10 h-10 fill-[#5c2560] hover:fill-[#7289da] hover:scale-110 transition duration-300" />
-                    </a>
-                </div>
-
-=======
                         <FaInstagramSquare className="w-9 h-9 fill-[#5c2560]" />
                     </a>
                     <a href="https://www.linkedin.com/company/rcc-sjsu/" className="text-5xl">
@@ -61,7 +42,6 @@ export default function Home(): JSX.Element {
                         <FaDiscord className="w-10 h-10 fill-[#5c2560]" />
                     </a>
                 </div>
->>>>>>> 9855caca93b364d7dfbbe5ab67c4c46e38b3474f
             </div>
             <div className="flex flex-col items-center relative z-10">
                 <div className="w-[250px] h-[250px] bg-transparent rounded-full flex justify-center items-center mt-30">
