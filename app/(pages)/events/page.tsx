@@ -1,7 +1,3 @@
 export default function Events() {
-    return (
-        <body>
-
-        </body>
-    );
+  return <main></main>;
 }

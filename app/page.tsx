@@ -3,7 +3,6 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <body>
        <main>
         <div className={styles.content}>
             <h1>Responsible Computing Club</h1>
@@ -28,6 +27,5 @@ export default function Home() {
             </div>
         </div>
     </main>
-    </body>
   );
 }
