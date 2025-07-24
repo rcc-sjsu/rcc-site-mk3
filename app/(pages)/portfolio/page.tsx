@@ -1,7 +1,3 @@
 export default function Portfolio() {
-    return (
-        <body>
-
-        </body>
-    );
+  return <main></main>;
 }
