@@ -1,0 +1,135 @@
+/* page.module.css */
+
+.signup-input {
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 8rem;
+  padding-right: 1rem;
+  background-color: #5C1C75;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(92, 28, 117, 0.45);
+}
+
+.icon-style {
+  height: 2rem;
+  width: 2rem;
+  color: #ffffff;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 1024px) {
+  .signup-input {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 6rem; /* Adjust padding for icon on smaller desktops/tablets */
+    font-size: 1.125rem; /* 18px */
+  }
+  .icon-style {
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+}
+
+/* Small devices (phones, 480px and up) */
+@media (max-width: 768px) {
+  .signup-input {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 5rem; /* Further reduce padding for tablets */
+    font-size: 1rem; /* 16px */
+  }
+  .icon-style {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 480px) */
+@media (max-width: 480px) {
+  .signup-input {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 3.5rem; /* Even smaller for mobile */
+    font-size: 0.875rem; /* 14px */
+  }
+  .icon-style {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+}
+
+.get-started {
+  width: 50%;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: #5C1C75;
+  color: #ffffff;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(92, 28, 117, 0.45);
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 1024px) {
+  .get-started {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: 1.25rem; /* 20px */
+    width: 60%;
+  }
+}
+
+/* Small devices (phones, 480px and up) */
+@media (max-width: 768px) {
+  .get-started {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 1rem; /* 18px */
+    width: 70%; /* Make button wider on tablets */
+  }
+}
+
+/* Extra small devices (portrait phones, less than 480px) */
+@media (max-width: 480px) {
+  .get-started {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.75rem; /* 16px */
+    width: 90%; /* Make button even wider on mobile */
+  }
+}
+
+.get-started:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.get-started:hover:not(:disabled) {
+  background-color: #4a165e;
+}
+
+.signup-input-container {
+  position: relative;
+  width: 100%;
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
+}

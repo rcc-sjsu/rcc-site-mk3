@@ -4,18 +4,13 @@ import { useActionState, FormEvent } from "react";
 import { signup } from "./actions";
 import { UserIcon, LockClosedIcon, EnvelopeIcon, IdentificationIcon, AcademicCapIcon, ChatBubbleOvalLeftIcon, BookOpenIcon } from "@heroicons/react/24/solid";
 import { useRef, useState, useEffect, ChangeEvent, FocusEvent } from "react";
+import styles from './page.module.css';
 
 // ----- Types -----
 interface SignupFormFields {
   fname: string;
   lname: string;
-  pname: string;
-  sid: string;
   email: string;
-  sjsuEmail: string;
-  major: string;
-  discord: string;
-  gradDate: string;
   password: string;
   passConfirm: string;
 }
@@ -65,13 +60,7 @@ export default function SignUpPage(): React.JSX.Element {
   const [fields, setFields] = useState<SignupFormFields>({
     fname: "",
     lname: "",
-    pname: "",
-    sid: "",
     email: "",
-    sjsuEmail: "",
-    major: "",
-    discord: "",
-    gradDate: new Date().toISOString().slice(0, 10),
     password: "",
     passConfirm: "",
   });
@@ -136,23 +125,23 @@ export default function SignUpPage(): React.JSX.Element {
   };
 
   return (
-    <div className="flex p-25 m-5">
+    <div className="flex p-4 mt-26 mx-auto h-full items-center justify-center sm:p-8 sm:mt-24 lg:p-16 lg:mt-6">
       <form
         ref={formRef}
         action={formAction}
         onSubmit={handleSubmit}
-        className="m-auto h-full w-2/5 flex flex-col justify-evenly"
+        className="m-auto h-full w-full flex flex-col justify-evenly p-4 sm:w-4/5 sm:p-6 md:w-3/4 md:p-8 lg:w-3/5 lg:p-10"
       >
         {/* First Name - no validation */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <UserIcon className="h-5 w-5 text-white" />
+        <div className={styles['signup-input-container']}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-6 sm:pl-8 md:pl-10">
+            <UserIcon className={styles['icon-style']} />
           </span>
           <input
             type="text"
             name="fname"
             placeholder="First Name"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className={styles['signup-input']}
             value={fields.fname}
             onChange={handleChange}
             required
@@ -160,72 +149,41 @@ export default function SignUpPage(): React.JSX.Element {
         </div>
 
         {/* Last Name - no validation */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <UserIcon className="h-5 w-5 text-white" />
+        <div className={styles['signup-input-container']}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-6 sm:pl-8 md:pl-10">
+            <UserIcon className={styles['icon-style']} />
           </span>
           <input
             type="text"
             name="lname"
             placeholder="Last Name"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className={styles['signup-input']}
             value={fields.lname}
             onChange={handleChange}
             required
           />
         </div>
 
-        {/* Preferred Name - no validation */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <UserIcon className="h-5 w-5 text-white" />
-          </span>
-          <input
-            type="text"
-            name="pname"
-            placeholder="Preferred Name"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
-            value={fields.pname}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        
-        {/* Student ID - no validation */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <IdentificationIcon className="h-5 w-5 text-white" />
-          </span>
-          <input
-            type="text"
-            name="sid"
-            placeholder="Student ID"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
-            value={fields.sid}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
         {/* Preferred Email */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <EnvelopeIcon className="h-5 w-5 text-white" />
+        <div className={styles['signup-input-container']}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-6 sm:pl-8 md:pl-10">
+            <EnvelopeIcon className={styles['icon-style']} />
           </span>
           <input
             type="email"
             name="email"
             placeholder="Preferred Email"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className={styles['signup-input']}
             value={fields.email}
             onChange={handleChange}
             onBlur={handleBlur}
             required
           />
-          {touched.email && errors.email && (
-            <div className="mt-1 text-red-500 text-sm">{errors.email}</div>
-          )}
         </div>
+        {touched.email && errors.email && (
+          <div className="ml-14 text-red-500 text-sm">{errors.email}</div>
+        )}
+  
 
         {(state?.error && (state?.error === 'insert or update on table "users" violates foreign key constraint "users_system_id_fkey"')) && (
           <div className="mt-2 mb-2 text-center text-red-500 font-medium">
@@ -233,113 +191,45 @@ export default function SignUpPage(): React.JSX.Element {
           </div>
         )}
 
-        {/* SJSU Email */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <EnvelopeIcon className="h-5 w-5 text-white" />
-          </span>
-          <input
-            type="email"
-            name="sjsuEmail"
-            placeholder="SJSU Email"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
-            value={fields.sjsuEmail}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            required
-          />
-          {touched.email && errors.email && (
-            <div className="mt-1 text-red-500 text-sm">{errors.email}</div>
-          )}
-        </div>
-
         {/* Password */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <LockClosedIcon className="h-5 w-5 text-white" />
+        <div className={styles['signup-input-container']}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-6 sm:pl-8 md:pl-10">
+            <LockClosedIcon className={styles['icon-style']} />
           </span>
           <input
             type="password"
             name="password"
             placeholder="Password"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className={styles['signup-input']}
             value={fields.password}
             onChange={handleChange}
             onBlur={handleBlur}
             required
           />
-          {touched.password && errors.password && (
-            <div className="mt-1 text-red-500 text-sm">{errors.password}</div>
-          )}
         </div>
+        {touched.password && errors.password && (
+          <div className="ml-4 text-red-500 text-sm sm:ml-6 md:ml-8">{errors.password}</div>
+        )}
 
         {/* Confirm Password */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <LockClosedIcon className="h-5 w-5 text-white" />
+        <div className={styles['signup-input-container']}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-6 sm:pl-8 md:pl-10">
+            <LockClosedIcon className={styles['icon-style']} />
           </span>
           <input
             type="password"
             name="passConfirm"
             placeholder="Confirm Password"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
+            className={styles['signup-input']}
             value={fields.passConfirm}
             onChange={handleChange}
             onBlur={handleBlur}
             required
           />
-          {touched.passConfirm && errors.passConfirm && (
-            <div className="mt-1 text-red-500 text-sm">{errors.passConfirm}</div>
-          )}
         </div>
-
-        {/* Major - no validation */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <BookOpenIcon className="h-5 w-5 text-white" />
-          </span>
-          <input
-            type="text"
-            name="major"
-            placeholder="Major"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
-            value={fields.major}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        {/* Discord Name - no validation */}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <ChatBubbleOvalLeftIcon className="h-5 w-5 text-white" />
-          </span>
-          <input
-            type="text"
-            name="discord"
-            placeholder="Discord Username"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
-            value={fields.discord}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        {/* Graduation Date*/}
-        <div className="relative w-full my-5">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-            <AcademicCapIcon className="h-5 w-5 text-white" />
-          </span>
-          <input
-            type="date"
-            name="gradDate"
-            placeholder="Graduation Date"
-            className="w-full py-4 pl-12 pr-4 bg-purple-800 text-white placeholder-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400"
-            value={fields.gradDate}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        {touched.passConfirm && errors.passConfirm && (
+          <div className="ml-4 text-red-500 text-sm sm:ml-6 md:ml-8">{errors.passConfirm}</div>
+        )}
 
         {/* Server-side error */}
         {(state?.error && (state?.error != 'insert or update on table "users" violates foreign key constraint "users_system_id_fkey"')) && (
@@ -350,10 +240,10 @@ export default function SignUpPage(): React.JSX.Element {
 
         <button
           type="submit"
-          className="w-3/5 my-5 py-3 bg-purple-800 text-white rounded-full focus:outline-none focus:ring-2 focus:ring-purple-400 mx-auto"
+          className={styles['get-started']}
           disabled={!isFormValid || isPending}
         >
-          {isPending ? "Signing up..." : "Sign Up"}
+          {isPending ? "Signing up..." : "GET STARTED"}
         </button>
       </form>
     </div>
