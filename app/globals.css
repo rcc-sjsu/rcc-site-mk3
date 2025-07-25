@@ -1,62 +1,57 @@
 @import "tailwindcss";
 
+/* COMMENTED OUT BECAUSE IT INTERFERS WITH STYLING */
 h1 {
-  font-family: var(--font-zilla-slab);
-  font-size: 55.2px;
+  font-family: var(--font-nunito-sans);
+  /* font-size: 55.2px;
   line-height: 115.2px;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  color: #5C1C75;
+  color: #5C1C75; */
 }
 
 h2 {
   font-family: var(--font-inter);
-  font-size: 26px;
+  /* font-size: 26px;
   line-height: 58.09px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #5C1C75;
-  margin: 0;
+  margin: 0; */
 }
 
 p {
   font-family: var(--font-nunito-sans);
-  font-size: 19px;
+  /* font-size: 19px;
   width: 80%;
   line-height: 49.1px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #000000C7;
-  margin: 0;
+  margin: 0; */
 }
 
 li {
   font-family: var(--font-nunito-sans);
-  font-size: 18px;
+  /* font-size: 18px;
   width: 80%;
   font-weight: 500;
   line-height: 49.1px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #000000C7;
-  margin: 0;
-
+  margin: 0; */
 }
 
 a {
-  font-size: 19px;
-  width: 80%;
+  /* font-size: 19px; */
+  /* width: 80%;
   font-weight: 500;
   line-height: 49.1px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: #000000C7;
-  margin: 0;
+  margin: 0; */
   text-decoration: none;
-}
-
-hr {
-  border-color: #d0abdfaf;
-  width: 100%;
 }
