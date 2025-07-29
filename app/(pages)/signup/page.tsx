@@ -6,27 +6,22 @@ import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { useRef, useState, useEffect, ChangeEvent, FocusEvent } from "react";
 import styles from './page.module.css';
 import Image from "next/image";
-
+import Link from 'next/link';
 
 // ----- Types -----
 interface SignupFormFields {
-  fname: string;
-  lname: string;
   email: string;
   password: string;
-  passConfirm: string;
 }
 
 interface SignupFormTouched {
   email: boolean;
   password: boolean;
-  passConfirm: boolean;
 }
 
 interface SignupFormErrors {
   email: string;
   password: string;
-  passConfirm: string;
 }
 
 interface SignupState {
@@ -60,26 +55,21 @@ export default function SignUpPage(): React.JSX.Element {
   const formRef = useRef<HTMLFormElement>(null);
 
   const [fields, setFields] = useState<SignupFormFields>({
-    fname: "",
-    lname: "",
     email: "",
     password: "",
-    passConfirm: "",
   });
 
   const [touched, setTouched] = useState<SignupFormTouched>({
     email: false,
     password: false,
-    passConfirm: false,
   });
 
   const [errors, setErrors] = useState<SignupFormErrors>({
     email: "",
     password: "",
-    passConfirm: "",
   });
 
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);  // toggles password visibility
 
   // Validate fields whenever they change
   useEffect(() => {
@@ -91,10 +81,6 @@ export default function SignUpPage(): React.JSX.Element {
       password:
         fields.password && !validatePassword(fields.password)
           ? "Password must be at least 8 characters, include a capital letter, a number, and a special character."
-          : "",
-      passConfirm:
-        fields.passConfirm && fields.passConfirm !== fields.password
-          ? "Passwords do not match."
           : "",
     });
   }, [fields]);
@@ -143,9 +129,9 @@ export default function SignUpPage(): React.JSX.Element {
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-6 sm:mb-8 md:mb-14 lg:mb-20 text-center lg:text-left tracking-wider">
             Already have an account?{" "}
             {/* Link to Signin page */}
-            <a href="#" className="text-[#470085] hover:underline font-semibold">
+            <Link href="/login" className="text-[#470085] hover:underline font-semibold">
               Log in
-            </a>
+            </Link>
           </p>
 
           <form
@@ -184,9 +170,8 @@ export default function SignUpPage(): React.JSX.Element {
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
-                placeholder="******"
-                className={`${styles['signup-input']} py-2 px-3 text-sm sm:py-2 sm:px-4 sm:text-base md:py-3 md:px-5 md:text-lg`}
-                style={{letterSpacing: '0.5em'}}
+                placeholder="password"
+                className={`${styles['signup-input']} py-2 px-3 text-base sm:py-2 sm:px-4 sm:text-lg md:py-3 md:px-5 md:text-xl`}
                 value={fields.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -244,7 +229,7 @@ export default function SignUpPage(): React.JSX.Element {
           layout="responsive"
           width={800}
           height={970} 
-          className={`${styles['signup-graphic-shadow']} relative z-10 max-w-full lg:max-w-[80%] xl:max-w-[65%] h-auto rounded-lg lg:mt-20 lg:mr-0 xl:mb-10 xl:mr-20`}
+          className={`${styles['signup-graphic-shadow']} relative z-10 max-w-full lg:max-w-[80%] xl:max-w-[65%] h-auto rounded-lg lg:mt-20 lg:mr-0 xl:mb-20 xl:mr-20`}
           style={{objectFit: "contain"}}
         />
       </div>
