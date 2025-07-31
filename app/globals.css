@@ -45,8 +45,8 @@ li {
 }
 
 a {
-  font-size: 19px;
-  width: 80%;
+  /* font-size: 19px; */
+  /* width: 80%; */
   font-weight: 500;
   line-height: 49.1px;
   text-underline-position: from-font;
