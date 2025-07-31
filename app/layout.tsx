@@ -31,8 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nunitoSans.variable} ${inter.variable} ${zillaSlab.variable}`}>
-        <Header />
-        {children}
+        <div className="layout">
+          <Header />
+          <main className="root-page-content">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );

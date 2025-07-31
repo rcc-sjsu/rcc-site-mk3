@@ -2,13 +2,13 @@
   display: flex;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
+  padding-top: 0rem;
+  padding-bottom: 1rem;
   flex-direction: column;
   gap: 1rem;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100%;
   background-color: whitesmoke;
 
   @media (min-width: 576px) {
@@ -31,7 +31,7 @@
 .left_section {
   display: flex;
   flex-direction: column;
-  margin-top: 8rem;
+  margin-top: 2rem;
   margin-left: 4rem;
   margin-right: 4rem;
   width: 100%;
