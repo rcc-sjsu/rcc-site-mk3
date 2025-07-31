@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 
 export default function Home() {
   return (
-       <main>
+    <div>
         <div className={styles.content}>
             <h1>Responsible Computing Club</h1>
             <p>
@@ -26,6 +26,6 @@ export default function Home() {
                 <Image src="/icons/smiley-icon.svg" alt="Smiley" className={styles.smiley}  width="100" height="100"/>
             </div>
         </div>
-    </main>
+    </div>
   );
 }

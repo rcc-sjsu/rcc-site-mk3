@@ -60,3 +60,44 @@ hr {
   border-color: #d0abdfaf;
   width: 100%;
 }
+
+
+/*Layout.tsx styles to handle Navbar + Page content interaction*/
+:root {
+  /* --primary-color: #3498db;
+  --secondary-color: #ecf0f1; */
+  /* --padding: 20px; Example padding */
+}
+
+html, body {
+  height: 100%; /* Ensure html and body take full height */
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Make sure the layout takes the full viewport height */
+}
+
+.root-header {
+  /* This effectively sets a fixed height for the navbar */
+  /* If Header has an intrinsic height, flex: 0 0 auto will respect it */
+  flex: 0 0 auto; 
+  /* background-color: var(--primary-color); */
+  padding: 10px 20px; /* Example padding for header */
+  color: white; /* Example text color */
+}
+
+.root-page-content {
+  flex: 1; /* This makes the content area grow and take all available space */
+  overflow-y: auto; /* Adds scroll if content overflows vertically */
+  padding: var(--padding);
+  background-color: var(--secondary-color);
+}
+
+/* font variables */
+.nunito-sans-variable { font-family: var(--font-nunito-sans); }
+.inter-variable { font-family: var(--font-inter); }
+.zilla-slab-variable { font-family: var(--font-zilla-slab); }

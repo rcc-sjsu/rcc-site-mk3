@@ -4,7 +4,7 @@ import styles from './header.module.css';
 
 const Header: React.FC = () => {
     return (
-        <header className={styles.topnav}>
+        <header className="root-header">
             <div className="grid grid-cols-10 gap-2">
                 <div className="col-span-6 col-start-3">
                     <div className="coulmns-4 gap-2">
@@ -19,7 +19,6 @@ const Header: React.FC = () => {
                     <Link href="/signup">sign up</Link>
                 </div>
             </div>
-
         </header>
     );
 };
