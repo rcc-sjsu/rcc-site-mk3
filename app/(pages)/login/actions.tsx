@@ -27,5 +27,5 @@ export async function login(
 
   // Optionally, you can return a success state before redirecting
   // return { error: null };
-  redirect('/');
+  redirect('./auth-testing');
 }

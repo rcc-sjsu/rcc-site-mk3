@@ -46,5 +46,5 @@ export async function signup(
         }
     }
 
-    redirect('./login')
+    redirect('./auth-testing')
 }
