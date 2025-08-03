@@ -1,0 +1,10 @@
+.gradient {
+  border-radius: 50%;
+  z-index: -1;
+  position: relative;
+  filter: blur(7rem);
+}
+
+.gradientContainer {
+  display: flex;
+}
