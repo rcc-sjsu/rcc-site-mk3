@@ -1,0 +1,52 @@
+.container {
+  font-family: var(--font-nunito-sans);
+  position: relative;
+  width: 25rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.photoContainer {
+  height: 16rem;
+  display: flex;
+}
+
+.photo {
+  margin: auto;
+  width: 11.25rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.projectDetails {
+  margin: 1.25rem 1.25rem 0 1.25rem;
+}
+
+.projectName {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.teamName {
+  margin-bottom: 1.4rem;
+}
+
+.description {
+  font-size: 1.25rem;
+} 
+
+.teamContainer {
+  padding-bottom: 2.5rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.teammateContainer {
+  margin-top: 0.25rem;
+}
+
+.teammate {
+  margin: 0 1.25rem 0 1.25rem;
+}
