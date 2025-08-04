@@ -46,13 +46,6 @@
   aspect-ratio: 1/1;
   border-radius: 50%;
 }
-/* 
-.RCCGradient {
-  margin: -32.5rem auto 0 auto;
-  display: flex;
-  width: fit-content;
-  justify-content: center;
-} */
 
 .missionStatementSection {
   margin: 12.5rem auto 10rem auto;
@@ -72,6 +65,10 @@
   border-radius: 50%;
 }
 
+.missionHeadingParagraph {
+  text-align: center;
+}
+
 .missionStatementParagraph {
   margin: 0 auto 0 auto;
   margin-top: 2rem;
@@ -85,6 +82,20 @@
   margin: -28rem auto 0 auto
 }
 
+.msGradientContainer {
+  display: flex;
+  width: 98rem;
+  margin: -43.25rem auto 0 auto;
+  justify-content: start;
+  /* "flex w-370 -mt-173 mx-auto justify-start" */
+}
+
+.missionStatementGradient {
+  position: relative;
+  width: 43rem;
+  height: 40rem;
+}
+
 @media (width < 1250) {
   .RCCSection {
     flex-direction: column-reverse;
@@ -95,7 +106,7 @@
     text-align: center;
   }
   .RCCHeading {
-    margin-top: -3rem;
+    margin-top: -5rem;
   }
   .RCCHeading h1 div {
     font-size: 2.7rem;
@@ -118,6 +129,30 @@
     width: 33rem;
     height: 38rem;
     margin: -40rem auto 0 auto
+  }
+}
+
+@media (width < 1250) {
+  .missionStatementSection {
+    flex-direction: column;
+    gap: 5.5rem;
+  }
+  .groupPhoto {
+    scale: 0.75;
+  }
+  .missionStatementParagraph {
+    max-width: none;
+    width: 75%;
+    font-size: 1.5rem;
+  }
+  .msGradientContainer {
+    justify-content: center;
+    width: unset;
+  }
+  .missionStatementGradient {
+    width: 33rem;
+    height: 38rem;
+    margin-top: -3rem;
   }
 }
 
@@ -151,7 +186,6 @@
   }
   .RCCParagraph {
     margin: 1.7rem 1.5rem 2rem 1.5rem;
-    
   }
   .socialContainer {
     gap: 2rem;
@@ -161,6 +195,23 @@
     position: relative;
     width: 14rem;
     height: 18rem;
-    margin: -27rem auto 0 auto
+    margin: -30rem auto 0 auto
+  }
+}
+
+@media (width < 670) {
+  .missionStatementSection {
+    margin-top: 0rem;
+  }
+  .groupPhoto {
+    visibility: collapse;
+  }
+  .missionStatementParagraph {
+    font-size: 1rem;
+  }
+  .missionStatementGradient {
+    width: 14rem;
+    height: 18rem;
+    margin: 19rem 0 0 0;
   }
 }

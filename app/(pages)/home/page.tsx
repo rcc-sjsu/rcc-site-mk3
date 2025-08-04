@@ -47,22 +47,17 @@ export default function HomePage() {
 
       </section>
 
-      {/* <div className={styles.RCCGradient}> */}
-        {/* <BackgroundGradient width={60} height={35}></BackgroundGradient> */}
-      <BackgroundGradient className={styles.RCCGradient} 
-      
-      color="purple"
-      
-      ></BackgroundGradient>
-      {/* </div> */}
-{/* 
+      <BackgroundGradient className={styles.RCCGradient} color="purple"/>
+
       <section className={styles.missionStatementSection}>
         
         <div className={styles.groupPhoto}/>
         
-        <div className="text-center">
+        <div className={styles.missionHeadingParagraph}>
 
-          <Heading> Our Mission Statement </Heading>
+          <div className={styles.RCCHeading}>
+            <Heading> Our Mission Statement </Heading>
+          </div>
 
           <p className={styles.missionStatementParagraph}>
             RCC’s mission is to make responsible computing 
@@ -80,9 +75,10 @@ export default function HomePage() {
 
       </section>
 
-      <div className="-mt-167 mx-auto w-347 mb-30">
-        <BackgroundGradient width={41} height={37}></BackgroundGradient>
-      </div> */}
+
+      <div className={styles.msGradientContainer}>
+        <BackgroundGradient className={styles.missionStatementGradient} color="purple"/>
+      </div>
 
     </main>
   );
