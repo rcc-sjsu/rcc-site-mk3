@@ -11,45 +11,36 @@ export default function BlogCard({ color, photoURL, title, author, date, summary
       className={styles.container}
     >
 
-      <div 
-      style={{
-        backgroundImage: `url(${photoURL})`
-      }} 
-      className={styles.photo}
-      />
+      {/* Photo, Title, Author, Date */}
+      <div>
 
-      <div className={styles.blogContainer}>
+        <div style={{ backgroundImage: `url(${photoURL})` }} className={styles.photo}/>
 
-        {/* Blog title, author, date */}
         <div className={styles.blogDetails}>
-
+        
           <p className={styles.blogTitle}>
             {title}
           </p>
-
           <p className={styles.blogAuthorship}>
             by {author} | {date}
           </p>
 
         </div>
-
-        {/* Blog summary and tag */}
-        <div className={styles.summaryContainer}>
-
-          <p className={styles.summary}>
-            {summary}            
-          </p>
-
-          <p 
-          style={{
-            color: color == "red" ? "#9A0146" : color == "blue" ? "#3852AD" : ""}}
-          >
-            {tag}
-          </p>
-
-        </div>
-      
+          
       </div>
+
+      {/* Summary */}
+      <p className={styles.summary}>
+        {summary}
+      </p>
+  
+      {/* Tag */}
+      <p 
+        style={{ color: color == "red" ? "#9A0146" : color == "blue" ? "#3852AD" : "" }}
+        className={styles.tag}
+      >
+        {tag}
+      </p>
       
     </section>
   );
