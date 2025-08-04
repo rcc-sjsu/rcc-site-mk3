@@ -1,13 +1,15 @@
 import BackgroundGradient from "@/app/components/BackgroundGradient";
 import Heading from "@/app/components/Heading";
 import aboutStyles from "./about.module.css"
+import missionStyles from "./mission.module.css"
 
 export default function HomePage() {
   
 
   return (
-    <main className="mt-10 pt-50 overflow-clip h-500">
+    <main style={{overflow: "clip"}}>
 
+      {/* About */}
       <section className={aboutStyles.RCCSection}>
 
         <div className={aboutStyles.RCCText}>
@@ -53,17 +55,18 @@ export default function HomePage() {
         <BackgroundGradient className={aboutStyles.RCCGradient} color="purple"/>
       </div>
 
-      {/* <section className={styles.missionStatementSection}>
+      {/* Mission Statement */}
+      <section className={missionStyles.missionSection}>
         
-        <div className={styles.groupPhoto}/>
+        <div className={missionStyles.groupPhoto}/>
         
-        <div className={styles.missionHeadingParagraph}>
+        <div className={missionStyles.missionText}>
 
-          <div className={styles.RCCHeading}>
+          <div className={missionStyles.missionHeading}>
             <Heading> Our Mission Statement </Heading>
           </div>
 
-          <p className={styles.missionStatementParagraph}>
+          <p className={missionStyles.missionParagraph}>
             RCC’s mission is to make responsible computing 
             <strong><em> relevant to everyone </em></strong> 
             and 
@@ -79,10 +82,9 @@ export default function HomePage() {
 
       </section>
 
-
-      <div className={styles.msGradientContainer}>
-        <BackgroundGradient className={styles.missionStatementGradient} color="purple"/>
-      </div> */}
+      <div className={missionStyles.missionGradientContainer}>
+        <BackgroundGradient className={missionStyles.missionGradient} color="purple"/>
+      </div>
 
     </main>
   );
