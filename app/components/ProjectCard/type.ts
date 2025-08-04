@@ -1,5 +1,5 @@
 export type projectProps = {
-  color: "blue" | "pink",
+  color: "blue" | "red",
   photoURL: string,
   projectName: string,
   teamName: string,

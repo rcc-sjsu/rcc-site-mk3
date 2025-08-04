@@ -7,8 +7,8 @@ export default function ProjectCard({color, photoURL, projectName, teamName, des
 
     <section 
       style={{
-        boxShadow: color == "blue" ? "0px 4px 8px #3852AD" : color == "pink" ? "0px 4px 8px #9A0146" : "",
-        border: color == "blue" ? "2px solid #3852AD" : color == "pink" ? "2px solid #9A0146" : ""
+        boxShadow: color == "blue" ? "0px 4px 8px #3852AD" : color == "red" ? "0px 4px 8px #9A0146" : "",
+        border: color == "blue" ? "2px solid #3852AD" : color == "red" ? "2px solid #9A0146" : ""
       }} 
       className={styles.container}
     >
@@ -17,7 +17,7 @@ export default function ProjectCard({color, photoURL, projectName, teamName, des
       <div>
   
         <div
-          style={{ backgroundColor: color == "blue" ? "#E2E8FD" : color == "pink" ? "#F4DFF8" : "" }}
+          style={{ backgroundColor: color == "blue" ? "#E2E8FD" : color == "red" ? "#F4DFF8" : "" }}
           className={styles.photoContainer}
         >
           <img className={styles.photo} src={photoURL}/>
