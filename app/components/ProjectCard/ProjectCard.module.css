@@ -1,6 +1,5 @@
 .container {
   font-family: var(--font-nunito-sans);
-  position: relative;
   width: 25rem;
   background-color: white;
   display: flex;
@@ -21,7 +20,7 @@
 }
 
 .projectDetails {
-  margin: 1.25rem 1.25rem 0 1.25rem;
+  margin: 1.75rem 1.25rem 1.25rem 1.25rem;
 }
 
 .projectName {
@@ -29,24 +28,16 @@
   font-size: 1.25rem;
 }
 
-.teamName {
-  margin-bottom: 1.4rem;
-}
-
 .description {
   font-size: 1.25rem;
+  margin: 0 1.25rem 0 1.25rem;
 } 
 
 .teamContainer {
-  padding-bottom: 2.5rem;
-  margin-top: 3rem;
-  width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .teammateContainer {
-  margin-top: 0.25rem;
-}
-
-.teammate {
-  margin: 0 1.25rem 0 1.25rem;
+  margin: 0.25rem 1.25rem 0 1.25rem;
 }

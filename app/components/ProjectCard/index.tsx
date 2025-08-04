@@ -4,27 +4,25 @@ import styles from "./ProjectCard.module.css"
 
 export default function ProjectCard({color, photoURL, projectName, teamName, description, teamMembers}: projectProps) {
   return (
+
     <section 
       style={{
-        boxShadow: color == "blue" ? "0px 4px 8px #708CCD" : color == "pink" ? "0px 4px 8px #9D61BB" : ""
+        boxShadow: color == "blue" ? "0px 4px 8px #3852AD" : color == "pink" ? "0px 4px 8px #9A0146" : "",
+        border: color == "blue" ? "2px solid #3852AD" : color == "pink" ? "2px solid #9A0146" : ""
       }} 
       className={styles.container}
     >
-
-      {/* Photo and Description Container */}
+      
+      {/* Photo, Project Name, Team Name */}
       <div>
-
-        {/* Photo */}
-        <div 
-          style={{ 
-            backgroundColor: color == "blue" ? "#E2E8FD" : color == "pink" ? "#F4DFF8" : "" 
-          }}
+  
+        <div
+          style={{ backgroundColor: color == "blue" ? "#E2E8FD" : color == "pink" ? "#F4DFF8" : "" }}
           className={styles.photoContainer}
         >
           <img className={styles.photo} src={photoURL}/>
         </div>
 
-        {/* Description */}
         <div className={styles.projectDetails}>
         
           <h1 className={styles.projectName}>
@@ -33,16 +31,17 @@ export default function ProjectCard({color, photoURL, projectName, teamName, des
           
           <h2 className={styles.teamName}>
             by {teamName}
-          </h2>
-          
-          <p className={styles.description}>
-            {description}
-          </p>
+          </h2>   
 
         </div>
-      </div>
 
-      {/* Team Members Container */}
+        <p className={styles.description}>
+          {description}
+        </p>
+
+      </div>
+      
+      {/* Divider and Team Members */}
       <div className={styles.teamContainer}>
 
         <Divider/>
@@ -60,7 +59,7 @@ export default function ProjectCard({color, photoURL, projectName, teamName, des
         </div>
 
       </div>
-      
+          
     </section>
 
   );
