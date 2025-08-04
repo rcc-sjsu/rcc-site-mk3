@@ -1,30 +1,41 @@
 import { headingProps } from "./type";
 import styles from "./Heading.module.css"
 
-export default function Heading({children, align, fontSize, logoPath, logoAlign, logoSize}: headingProps) {
+export default function Heading({children, customStyle, align, logoPath, logoAlign, logoSize}: headingProps) {
+  
+  const h1Style: React.CSSProperties = {
+    fontFamily: "var(--font-zilla-slab)",
+    fontSize: "4.5rem",
+    justifyContent: align == "left" ? "left" : "center",
+    display: "flex",
+    gap: "1rem",
+    fontWeight: "bold",
+    lineHeight: "5rem",
+    color: "#470085"
+  } 
+
+  const combinedStyle = {
+    ...h1Style,
+    ...customStyle
+  }
+  
   return (
     <h1 
-      style={{ 
-        fontSize: fontSize ? fontSize + "rem" : "4.5rem",
-        justifyContent: align == "left" ? "left" : "center",
-      }} 
-      className={styles.container}
+      style={combinedStyle}
     >
 
       {/* Left-aligned logo */}
       {logoPath && logoAlign=="left" && logoSize &&
-        <img src={logoPath}
-          style={{ 
-            width: logoSize + "rem", 
-          }}
+        <img 
+          src={logoPath}
           className={styles.logo}
-          />
+          style={{ 
+            height: logoSize + "rem", 
+          }}    
+        />
       }
       
       <div
-        style={{
-          margin: align == "left" ? "0 5rem 0 auto" : "auto"
-        }}
        className={styles.heading}
       >
         {children}
@@ -32,11 +43,12 @@ export default function Heading({children, align, fontSize, logoPath, logoAlign,
 
       {/* Right-aligned logo */}
       {logoPath && logoAlign=="right" && logoSize &&
-        <img src={logoPath} 
+        <img 
+          src={logoPath} 
+          className={styles.logo}
           style={{ 
             width: logoSize + "rem", 
           }}
-          className={styles.logo}
         />
       }
     
