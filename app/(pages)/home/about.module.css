@@ -56,7 +56,7 @@
   height: 30rem;
 }
 
-@media (width < 1250) {
+@media (width < 1330) {
 
   .RCCSection {
     flex-direction: column-reverse;
@@ -112,7 +112,7 @@
   }
 
   .RCCText {
-    width: 100%;
+    width: 90%;
     gap: 0rem;
   }
 
@@ -121,17 +121,16 @@
   }
   
   .RCCHeading {
-    width: 70rem;
-    scale: 0.85;
+    margin-bottom: -0.5rem;
 
     h1 div {
-      font-size: 1rem;
+      font-size: 0.8rem;
       line-height: 3.2rem;
     }
   }
 
   .RCCParagraph {
-    width: 90%;
+    margin-top: 0;
     font-size: 0.5rem;
   }
 
@@ -147,6 +146,7 @@
   .RCCGradientContainer {
     margin-top: -8.5rem;
   }
+  
   .RCCGradient {
     width: 11rem;
     height: 8rem;
