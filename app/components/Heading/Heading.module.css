@@ -1,17 +1,7 @@
-.container {
-  font-family: var(--font-zilla-slab);
-  display: flex;
-  gap: 1rem;
-  font-weight: bold;
-  line-height: 5rem;
-  color: #470085;
-}
-
 .logo {
   aspect-ratio: auto;
 }
 
 .heading {
   margin: auto 0 auto 0;
-  width: fit-content;
 }
