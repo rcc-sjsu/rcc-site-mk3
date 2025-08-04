@@ -1,0 +1,155 @@
+.RCCSection {
+  display: flex;
+  width: fit-content;
+  gap: 3.75rem;
+  font-size: 1.62rem;
+  margin: 0 auto 0 auto;
+  align-items: center;
+}
+
+.RCCText {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 40rem;
+  gap: 3rem;
+}
+
+.mozillaLogo {
+  width: 27.5rem;
+  background-image: url(/images/home/mozilla_logo.png);
+  background-position: center;
+  background-size: cover;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
+.lightbulbIcon {
+  width: 9rem;
+  margin-bottom: -10rem;
+}
+
+.smileyIcon {
+  width: 12rem;
+  margin-left: auto;
+  margin-top: -7.75rem;
+}
+
+.socialContainer {
+  display: flex;
+  gap: 6.75rem;
+  align-items: center;
+
+  a {
+    width: 2.5rem;
+  }
+}
+
+.RCCGradientContainer {
+  margin-top: -31rem;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.RCCGradient {
+  width: 65rem;
+  height: 30rem;
+}
+
+@media (width < 1250) {
+
+  .RCCSection {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .RCCText {
+    margin-top: -10rem;
+    max-width: unset;
+    width: 80%;
+    text-align: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .RCCHeading h1 div {
+    font-size: 1.9rem;
+  }
+
+  .RCCParagraph {
+    font-size: 1rem;
+  }
+
+  .socialContainer {
+    gap: 2rem;
+    margin-top: 2rem;
+    
+    a {
+      width: 1.5rem;
+    }
+  }
+
+  .RCCImageContainer {
+    scale: 0.4;
+  }
+
+  .RCCGradientContainer {
+    margin-top: -30rem;
+  }
+
+  .RCCGradient {
+    width: 25rem;
+    height: 25rem;
+  }
+  
+}
+
+@media (width < 680) {
+
+  .RCCSection {
+    display: flex;
+    width: 100vw;
+  }
+
+  .RCCText {
+    width: 100%;
+    gap: 0rem;
+  }
+
+  .RCCImageContainer {
+    visibility: collapse;
+  }
+  
+  .RCCHeading {
+    width: 70rem;
+    scale: 0.85;
+
+    h1 div {
+      font-size: 1rem;
+      line-height: 3.2rem;
+    }
+  }
+
+  .RCCParagraph {
+    width: 90%;
+    font-size: 0.5rem;
+  }
+
+  .socialContainer {
+    gap: 1.2rem;
+    margin-top: 1rem;
+
+    a {
+      width: 0.8rem;
+    }
+  }
+
+  .RCCGradientContainer {
+    margin-top: -8.5rem;
+  }
+  .RCCGradient {
+    width: 11rem;
+    height: 8rem;
+  }
+
+}
