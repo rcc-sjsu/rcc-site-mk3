@@ -1,8 +1,11 @@
 .gradient {
   border-radius: 50%;
   z-index: -1;
-  position: relative;
-  filter: blur(7rem);
+  /* position: relative; */
+  /* filter: blur(7rem); */
+  filter: blur(4rem);
+  border-radius: 50%;
+  z-index: -1;
 }
 
 .gradientContainer {

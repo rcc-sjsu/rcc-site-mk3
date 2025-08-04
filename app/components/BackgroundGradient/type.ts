@@ -1,5 +1,10 @@
+import React from 'react';
+
 export type gradientProps = {
-  color?: "purple" | "blue"
+  className?: string;
+  secondClass?: string;
+  style?: React.CSSProperties;
+  color: "purple" | "blue";
   width?: number;
   height?: number;
 }
