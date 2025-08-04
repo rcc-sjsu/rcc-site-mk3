@@ -1,0 +1,75 @@
+.footer {
+  background-color: #411a63;
+  color: white;
+  padding: 2rem 1rem;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.875rem;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; /* Stack by default */
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footerContainer {
+    flex-direction: row; /* Row on larger screens */
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensures items don't overflow */
+  }
+}
+
+.footerColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerMain {
+  flex: 2; /* Left column takes up twice the space */
+}
+
+.footerTitle {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.footerDescription {
+  color: white;
+  line-height: 1.2;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.footerHeading {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer a:hover {
+  opacity: 0.8;
+}
+
+.footerColumn a {
+  color: white;
+  line-height: 2;
+  font-size: 0.8rem;
+}
+
+.contactDescription {
+  color: white;
+  line-height: 2;
+  font-size: 0.8rem;
+}
