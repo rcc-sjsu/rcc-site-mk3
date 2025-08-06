@@ -6,6 +6,11 @@ const Header: React.FC = () => {
     return (
         <header className={styles.topnav}>
             <div className="grid grid-cols-10 gap-2">
+                <div className="col-span-2">
+                    <Link href="/" className="text-xl font-bold text-purple-600">
+                        RCC
+                    </Link>
+                </div>
                 <div className="col-span-6 col-start-3">
                     <div className="coulmns-4 gap-2">
                         <Link href="/about">about us</Link>
