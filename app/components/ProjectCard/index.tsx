@@ -1,8 +1,15 @@
+/*
+
+  You need to include individual ProjectCard components in a flex parent in order
+  to get the layout seen on the Figma
+
+*/
+
 import Divider from "../Divider";
 import { projectProps } from "./type";
 import styles from "./ProjectCard.module.css"
 
-export default function ProjectCard({color, photoURL, projectName, teamName, description, teamMembers}: projectProps) {
+export default function ProjectCard({color, photoURL, projectName, projectURL, teamName, description, teamMembers}: projectProps) {
   return (
 
     <section 
@@ -25,9 +32,9 @@ export default function ProjectCard({color, photoURL, projectName, teamName, des
 
         <div className={styles.projectDetails}>
         
-          <h1 className={styles.projectName}>
+          <a href={projectURL} className={styles.projectName}>
             {projectName}
-          </h1>
+          </a>
           
           <h2 className={styles.teamName}>
             by {teamName}
@@ -46,14 +53,29 @@ export default function ProjectCard({color, photoURL, projectName, teamName, des
 
         <Divider/>
 
-        {/* Member Names */}
+        {/* Team Members */}
         <div className={styles.teammateContainer}>
 
-          {Object.entries(teamMembers).map(([position, names]) => (
-            <p className={styles.teammate} key={position}>
+          {Object.entries(teamMembers).map(([position, members]) => (
+
+            <p key={position}>
               <strong >{position}: </strong>
-              <text>{names.join(", ")}</text>
+              
+              {/* Writing individual teammate names */}
+              {Object.values(members).map((member, index) => (
+                    
+                  <text>
+                    <a  className={styles.teammate} key={index} href={member.linkedInURL}>
+                      {member.name}
+                    </a>
+
+                    {index < members.length - 1 && ", "}
+                  </text>
+              
+              ))}
+
             </p>
+
           ))}
           
         </div>

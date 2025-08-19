@@ -1,3 +1,12 @@
+.projectName:hover {
+  text-decoration: underline;
+}
+
+.teammate:hover {
+  text-decoration: underline;
+  text-shadow: 0.5px 0 0 #000000C7;
+}
+
 .container {
   font-family: var(--font-nunito-sans);
   width: 25rem;
@@ -21,6 +30,7 @@
 
 .projectDetails {
   margin: 1.75rem 1.25rem 1.25rem 1.25rem;
+  color: #000000C7
 }
 
 .projectName {
