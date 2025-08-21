@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Nunito_Sans, Zilla_Slab } from "next/font/google";
 import "./globals.css";
-import Header from './components/header';
-import HeaderNew from "./components/headernew";
+import Header from './components/Header/Header';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,8 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nunitoSans.variable} ${inter.variable} ${zillaSlab.variable}`}>
-        {/* <Header /> */}
-        <HeaderNew/>
+        <Header />
         {children}
       </body>
     </html>
